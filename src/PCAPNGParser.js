@@ -132,7 +132,7 @@ class PCAPNGParser extends Transform {
         let pos = 0
         let foundEndOption = false
         let options = []
-        while (pos <= buf.length || foundEndOption) {
+        while (pos < buf.length || foundEndOption) {
             let rb = this.readBlock(buf, BlockConfig.optionBlock, this.endianess, pos)
             pos = rb.newOffset + (rb.data.dataLength * 8)
             if (rb.data.code === 0) {
